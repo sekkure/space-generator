@@ -1,0 +1,8 @@
+# Ignore trash bin
+node_modules
+
+# Ignore all yarn errors etc. files
+yarn.*
+
+# Do not ignore yarn.lock!
+!yarn.lock
