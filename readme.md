@@ -11,9 +11,9 @@ Very simple and basic script that generates space landscape for you.
 
 # How to manage symbols
 
-You can simply add new symbols to the object at the top of the class
+You can simply open `src/symbols.json` file and add new symbols
 
 - You must provide number as key, it's using as "weight" for your symbol.
-- If you want to add "rare" symbol, place it higher in the list. See example in code
+- If you want to add "rare" symbol, place it higher in the list. See example in json code
 
 Just play with weight for symbols and launch script again and again to get your cool looking space landscape 🐋

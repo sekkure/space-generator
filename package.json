@@ -9,7 +9,9 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "dev": "cls && npx ts-node ."
+    "dev": "cls && npx ts-node .",
+    "prod": "cls && node build/index.js",
+    "build": "tsc"
   },
   "name": "space-generator",
   "version": "1.0.0",

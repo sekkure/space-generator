@@ -1,5 +1,6 @@
 # Ignore trash bin
 node_modules
+build
 
 # Ignore all yarn errors etc. files
 yarn.*

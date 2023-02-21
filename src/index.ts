@@ -1,19 +1,12 @@
 import { question } from "readline-sync";
+import symbols from "./symbols.json";
 
 class SpaceGenerator {
-  private symbolsWeight: { [k: number]: string } = {
-    500: "✧",
-    1000: "★",
-    2000: "✦",
-    5000: "˚",
-    10000: "⠠",
-    12500: "⠁",
-    15000: "‧",
-    100000: "⠀",
-  };
+  private symbolsWeight = symbols;
 
   public generateSpace(width: number, height: number) {
     const space: string[] = [];
+
     const centerY = Math.floor(height / 2);
     const centerX = Math.floor(width / 2);
 
@@ -43,19 +36,21 @@ class SpaceGenerator {
   private getSymbolByWeight(symbol?: string): string {
     if (symbol) return symbol;
 
-    const weight = this.getWeight(this.getSumWeight());
-    const index = Object.keys(this.symbolsWeight).find(
-      (element) => +element >= weight
+    const randomWeight = this.getWeight(this.getSumWeight());
+    const foundSymbolWeight = Object.keys(this.symbolsWeight).find(
+      (symbolWeight) => +symbolWeight >= randomWeight
     );
 
     return this.getSymbolByWeight(
-      index ? this.symbolsWeight[+index] : undefined
+      foundSymbolWeight
+        ? this.symbolsWeight[foundSymbolWeight as keyof typeof symbols]
+        : undefined
     );
   }
 
   private getSumWeight() {
     return Object.keys(this.symbolsWeight).reduce<number>((prev, curr) => {
-      return prev + Number(curr);
+      return prev + +curr;
     }, 0);
   }
 }
